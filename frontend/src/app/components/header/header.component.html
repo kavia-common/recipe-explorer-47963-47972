@@ -1,0 +1,16 @@
+<header class="ocean-header">
+  <div class="brand">
+    <div class="logo">🍳</div>
+    <div class="titles">
+      <h1>Recipe Explorer</h1>
+      <span class="subtitle">Discover, cook, and save your favorites</span>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active" aria-label="Home">Home</a>
+    <a routerLink="/favorites" routerLinkActive="active" aria-label="Favorites">
+      Favorites <span class="badge" aria-label="Favorites count">{{ count$ | async }}</span>
+    </a>
+  </nav>
+</header>

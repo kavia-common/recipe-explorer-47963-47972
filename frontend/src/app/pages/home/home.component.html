@@ -1,0 +1,15 @@
+<section class="layout">
+  <aside class="sidebar">
+    <app-filter-bar [value]="filters" (valueChange)="onFiltersChanged($event)"></app-filter-bar>
+  </aside>
+
+  <main class="content">
+    <div class="grid">
+      <app-recipe-card
+        *ngFor="let r of items"
+        [recipe]="r"
+        (toggleFav)="onToggleFav($event)">
+      </app-recipe-card>
+    </div>
+  </main>
+</section>

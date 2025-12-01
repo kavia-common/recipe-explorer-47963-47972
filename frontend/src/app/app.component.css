@@ -1,16 +1,9 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.app-shell {
   min-height: 100vh;
-  background-color: #ffffff;
+  background: linear-gradient(180deg, rgba(37,99,235,0.06), #f9fafb 20%, #f9fafb);
 }
 
-h1 {
-  color: #1976d2;
-  font-size: 3rem;
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
 }

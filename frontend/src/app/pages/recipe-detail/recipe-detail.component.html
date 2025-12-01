@@ -1,0 +1,48 @@
+<a routerLink="/" class="back">← Back to recipes</a>
+
+<ng-container *ngIf="recipe$ | async as recipe; else missing">
+  <section class="detail-card">
+    <div class="cover">
+      <img [src]="recipe.imageUrl" [alt]="recipe.title" />
+    </div>
+    <div class="body">
+      <header class="header">
+        <h2>{{ recipe.title }}</h2>
+        <button class="fav" (click)="toggleFav(recipe.id)">
+          <span *ngIf="isFav(recipe.id)">★</span>
+          <span *ngIf="!isFav(recipe.id)">☆</span>
+          Favorite
+        </button>
+      </header>
+      <p class="desc">{{ recipe.description }}</p>
+
+      <div class="meta">
+        <span class="chip cat">{{ recipe.category }}</span>
+        <span class="chip cui" *ngIf="recipe.cuisine">{{ recipe.cuisine }}</span>
+        <span class="chip tag" *ngFor="let t of recipe.tags">{{ t }}</span>
+      </div>
+
+      <div class="columns">
+        <div class="ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            <li *ngFor="let i of recipe.ingredients">
+              <span class="dot">•</span>
+              {{ i.name }} <span class="qty" *ngIf="i.quantity">— {{ i.quantity }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="steps">
+          <h3>Steps</h3>
+          <ol>
+            <li *ngFor="let s of recipe.steps">{{ s.instruction }}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #missing>
+  <div class="missing">Recipe not found.</div>
+</ng-template>

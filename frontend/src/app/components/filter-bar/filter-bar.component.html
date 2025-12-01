@@ -1,0 +1,28 @@
+<div class="filter-bar" role="search" aria-label="Search and filter recipes">
+  <div class="row">
+    <input
+      type="text"
+      [(ngModel)]="value.query"
+      (input)="onChange()"
+      placeholder="Search recipes, e.g., salmon, vegan..."
+      aria-label="Search recipes"
+    />
+    <button class="clear" (click)="clearFilters()" aria-label="Clear filters">Clear</button>
+  </div>
+  <div class="row selects">
+    <select [(ngModel)]="value.category" (change)="onChange()" aria-label="Filter by category">
+      <option [ngValue]="undefined">All categories</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+
+    <select [(ngModel)]="value.cuisine" (change)="onChange()" aria-label="Filter by cuisine">
+      <option [ngValue]="undefined">All cuisines</option>
+      <option *ngFor="let c of cuisines" [value]="c">{{ c }}</option>
+    </select>
+
+    <select [(ngModel)]="value.tag" (change)="onChange()" aria-label="Filter by tag">
+      <option [ngValue]="undefined">All tags</option>
+      <option *ngFor="let t of tags" [value]="t">{{ t }}</option>
+    </select>
+  </div>
+</div>

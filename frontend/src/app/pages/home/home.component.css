@@ -1,0 +1,39 @@
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  padding: 16px 20px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 70px;
+  height: fit-content;
+}
+
+.content .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 800px) {
+  .content .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .content .grid {
+    grid-template-columns: 1fr;
+  }
+}

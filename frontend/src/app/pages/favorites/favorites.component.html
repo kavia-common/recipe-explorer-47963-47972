@@ -1,0 +1,9 @@
+<section class="content">
+  <h2 class="heading">Your Favorites</h2>
+  <div class="grid" *ngIf="items.length; else noFavs">
+    <app-recipe-card *ngFor="let r of items" [recipe]="r" (toggleFav)="onToggleFav($event)"></app-recipe-card>
+  </div>
+  <ng-template #noFavs>
+    <div class="empty">No favorite recipes yet. Explore and add some!</div>
+  </ng-template>
+</section>

@@ -1,0 +1,23 @@
+<article class="card" [attr.aria-label]="recipe.title">
+  <a class="image-wrap" [routerLink]="['/recipe', recipe.id]" aria-label="Open recipe details">
+    <img [src]="recipe.imageUrl" [alt]="recipe.title" />
+  </a>
+  <div class="content">
+    <header class="title">
+      <h3>{{ recipe.title }}</h3>
+      <span class="chip category">{{ recipe.category }}</span>
+    </header>
+    <p class="desc">{{ recipe.description }}</p>
+    <div class="tags">
+      <span class="chip tag" *ngFor="let t of recipe.tags">{{ t }}</span>
+    </div>
+    <footer class="actions">
+      <a class="details" [routerLink]="['/recipe', recipe.id]" aria-label="View details">View details</a>
+      <button class="fav" (click)="onToggleFav()" [attr.aria-pressed]="isFav()">
+        <span *ngIf="isFav()">★</span>
+        <span *ngIf="!isFav()">☆</span>
+        Favorite
+      </button>
+    </footer>
+  </div>
+</article>
